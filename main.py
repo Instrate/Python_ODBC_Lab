@@ -20,7 +20,8 @@ def main():
     # app.exec_()  
     #MySQL ODBC 8.0 Unicode Driver
     #SQL Server
-    con = pyodbc.connect('DRIVER={MySQL ODBC 8.0 Unicode Driver};User ID=root;Password=Bigben00;Server=localhost;Database=car_showroom;Port=3306;String Types=Unicode')
+    #ODBC Driver 17 for SQL Server
+    con = pyodbc.connect('DRIVER={MySQL ODBC 8.0 Unicode Driver};User ID=ODBC;Password=Bigben00;Server=localhost;Port=3306;Database=car_showroom;String Types=Unicode')
     cursor = con.cursor()
     request = 'SELECT * FROM `Склад`'
     cursor.execute(request)
