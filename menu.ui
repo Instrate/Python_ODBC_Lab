@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>971</width>
+    <width>1022</width>
     <height>292</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Меню</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -37,7 +37,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1" rowspan="4">
+   <item row="0" column="1" rowspan="3">
     <widget class="Line" name="line">
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -47,10 +47,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2" rowspan="4">
-    <widget class="QTableView" name="table"/>
-   </item>
-   <item row="0" column="3" rowspan="4">
+   <item row="0" column="3" rowspan="2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="buttonRefresh">
@@ -87,13 +84,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="buttonSave">
-       <property name="text">
-        <string>Зберегти</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item row="1" column="0">
@@ -109,21 +99,6 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QPushButton" name="buttonStartEditing">
-     <property name="font">
-      <font>
-       <family>Arial</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Перейти до редагування</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
     <widget class="QPushButton" name="buttonExit">
      <property name="font">
       <font>
@@ -137,6 +112,16 @@
       <string>Вийти</string>
      </property>
     </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="buttonSave">
+     <property name="text">
+      <string>Зберегти</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2" rowspan="3">
+    <widget class="QTableWidget" name="Table"/>
    </item>
   </layout>
  </widget>
