@@ -16,8 +16,11 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(412, 303)
         self.listWidget = QtWidgets.QListWidget(Form)
-        self.listWidget.setGeometry(QtCore.QRect(70, 100, 256, 192))
+        self.listWidget.setGeometry(QtCore.QRect(70, 191, 256, 101))
         self.listWidget.setObjectName("listWidget")
+        self.comboBox = QtWidgets.QComboBox(Form)
+        self.comboBox.setGeometry(QtCore.QRect(110, 110, 73, 22))
+        self.comboBox.setObjectName("comboBox")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
