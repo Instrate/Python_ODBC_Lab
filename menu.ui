@@ -6,16 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>348</width>
-    <height>369</height>
+    <width>971</width>
+    <height>292</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QPushButton" name="showAvailableTablesButton">
+    <widget class="QPushButton" name="buttonShowTables">
      <property name="font">
       <font>
        <family>Arial</family>
@@ -29,8 +37,67 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="1" rowspan="4">
+    <widget class="Line" name="line">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2" rowspan="4">
+    <widget class="QTableView" name="table"/>
+   </item>
+   <item row="0" column="3" rowspan="4">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="buttonRefresh">
+       <property name="text">
+        <string>Оновити таблицю</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonInput">
+       <property name="text">
+        <string>Додати</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonEdit">
+       <property name="text">
+        <string>Редагувати</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonDelete">
+       <property name="text">
+        <string>Видалити</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonFilter">
+       <property name="text">
+        <string>Фільтр</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonSave">
+       <property name="text">
+        <string>Зберегти</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item row="1" column="0">
-    <widget class="QListWidget" name="tablesListWidget">
+    <widget class="QListWidget" name="listTables">
      <property name="font">
       <font>
        <family>Arial</family>
@@ -42,7 +109,7 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QPushButton" name="editButton">
+    <widget class="QPushButton" name="buttonStartEditing">
      <property name="font">
       <font>
        <family>Arial</family>
@@ -57,7 +124,7 @@
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QPushButton" name="exitButton">
+    <widget class="QPushButton" name="buttonExit">
      <property name="font">
       <font>
        <family>Arial</family>
