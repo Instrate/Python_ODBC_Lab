@@ -23,7 +23,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="showTableProviders">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -44,7 +44,7 @@
     <string>Постачальники</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="showTableWarehouses">
    <property name="geometry">
     <rect>
      <x>610</x>
@@ -65,7 +65,7 @@
     <string>Склади</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="showTableContracts">
    <property name="geometry">
     <rect>
      <x>460</x>
@@ -86,7 +86,7 @@
     <string>Договори</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="showTableApplications">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -107,7 +107,7 @@
     <string>Замовлення</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="showTableAutos">
    <property name="geometry">
     <rect>
      <x>10</x>
