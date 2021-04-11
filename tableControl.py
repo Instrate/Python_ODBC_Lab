@@ -10,6 +10,7 @@ import menu
 from helper import *
 import filterControl
 import edit
+import delete
 
 class Control(QWidget, menu.Ui_Form):
     def __init__(self, parent):
@@ -24,7 +25,7 @@ class Control(QWidget, menu.Ui_Form):
         self.buttonFilter.clicked.connect(self.methodFilter)
         self.buttonSave.clicked.connect(self.methodSave)
         self.buttonEdit.clicked.connect(self.methodStartEditing)
-        
+        self.buttonDelete.clicked.connect(self.methodDelete)
 
     def methodShowTables(self):
         cur = self.parent.connection.cursor()
@@ -139,6 +140,10 @@ class Control(QWidget, menu.Ui_Form):
     def methodStartEditing(self):
         self.editingForm = edit.Edit(self)
         self.editingForm.show()
+
+    def methodDelete(self):
+        self.delete = delete.Delete(self)
+        self.delete.show()
 
     def methodFilter(self):
         self.filterForm = filterControl.filterControl(self)
