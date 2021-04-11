@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(1022, 292)
+        Form.resize(976, 292)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
@@ -57,6 +57,7 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.buttonFilter)
         self.gridLayout.addLayout(self.verticalLayout, 0, 3, 2, 1)
         self.listTables = QtWidgets.QListWidget(Form)
+        self.listTables.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)

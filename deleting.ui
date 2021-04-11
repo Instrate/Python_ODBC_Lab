@@ -19,7 +19,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Видалення</string>
   </property>
   <widget class="QPushButton" name="buttonDelete">
    <property name="geometry">

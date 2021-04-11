@@ -8,6 +8,8 @@ from PyQt5.QtGui import *
 
 import menu
 from helper import *
+import filterControl
+import edit
 
 class Control(QWidget, menu.Ui_Form):
     def __init__(self, parent):
@@ -17,7 +19,11 @@ class Control(QWidget, menu.Ui_Form):
         self.parent = parent
         self.buttonShowTables.clicked.connect(self.methodShowTables)
         self.buttonRefresh.clicked.connect(self.methodRefresh)
+        self.buttonInput.clicked.connect(self.methodInsert)
         self.buttonExit.clicked.connect(self.methodExit)
+        self.buttonFilter.clicked.connect(self.methodFilter)
+        self.buttonSave.clicked.connect(self.methodSave)
+        self.buttonEdit.clicked.connect(self.methodStartEditing)
         
 
     def methodShowTables(self):
@@ -34,6 +40,8 @@ class Control(QWidget, menu.Ui_Form):
         cur = self.parent.connection.cursor()
         self.table = self.listTables.currentItem().text()
         table = self.table
+        self.Table.setRowCount(0)
+        self.Table.setColumnCount(0)
         self.buttonInput.setEnabled(True)
         
         request = "SHOW COLUMNS FROM " + table + ";"
@@ -52,11 +60,11 @@ class Control(QWidget, menu.Ui_Form):
             for label in lables:
                 if(self.filter[i] == "+"):
                     newLables.append(label)
-                    i += 1
+                i += 1
             lables = newLables
-            newLables = 0
         else:
             self.filter = []
+            self.lables = lables
             for i in range(len(lables)):
                 self.filter.append("+")
 
@@ -94,6 +102,7 @@ class Control(QWidget, menu.Ui_Form):
                 if(type(temp).__name__=='date'):
                     temp = datetimeToStr(temp)
                 self.Table.setItem(rows - 1,j,QTableWidgetItem(str(temp)))
+        self.rows = rows
         if(indicator == True):
             rows += 2
             i = 0
@@ -101,16 +110,46 @@ class Control(QWidget, menu.Ui_Form):
                 temp = typeToFormat(temp)
                 self.Table.setItem(rows - 1,i,QTableWidgetItem(str(temp)))
                 i += 1
+        self.types = types
         self.Table.resizeColumnsToContents()
          
-
     def methodInsert(self):
         cur = self.parent.connection.cursor()
         table = self.table
-        request = 0
+        values = []
+        for i in range(len(self.filter)):
+            values.append(self.Table.item(self.rows,i).text())
+        value = ""
+        atr = ""
+        for i in range(len(values)):
+            if(str(self.types[i]).find('char')!=-1 or str(self.types[i]).find('date')!=-1):
+                value +='\"' + values[i] + '\"'
+            else:
+                value += values[i]
+            if(i < len(values)-1):
+                value += ','     
+        for i in range(len(self.lables)):
+            atr +="`"+self.lables[i]+"`"
+            if(i < len(self.lables)-1):
+                atr += ','  
+        request = "INSERT INTO " + table + " (" + atr + ")" + " VALUES ("+value+");"
+        cur.execute(request)
+        self.methodRefresh()
+
+    def methodStartEditing(self):
+        self.editingForm = edit.Edit(self)
+        self.editingForm.show()
 
     def methodFilter(self):
-        x = 0
+        self.filterForm = filterControl.filterControl(self)
+        self.filterForm.show()
+        
+    def methodSave(self):
+        con = self.parent.connection
+        con.commit()
+        cur = con.cursor()
+        request = "ALTER TABLE " + self.table + " AUTO_INCREMENT=1;"
+        cur.execute(request)
 
     def methodExit(self):
         self.close()

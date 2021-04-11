@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Filter</class>
+ <widget class="QWidget" name="Filter">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,7 +19,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Фільтр</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

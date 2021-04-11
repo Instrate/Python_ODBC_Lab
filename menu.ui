@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1022</width>
+    <width>976</width>
     <height>292</height>
    </rect>
   </property>
@@ -88,6 +88,12 @@
    </item>
    <item row="1" column="0">
     <widget class="QListWidget" name="listTables">
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <property name="font">
       <font>
        <family>Arial</family>
